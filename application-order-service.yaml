@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:postgresql://172.17.0.1:5432/order_db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: prometheus, health
+    metrics:
+      tags:
+        application: ${spring.application.name}
+    server:
+      port: 8001
+      ssl:
+        enabled: false
+
+logging:
+  level:
+    org: INFO
