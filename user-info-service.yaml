@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-service
+    name: user-info-service
   jpa:
     show-sql: false
     open-in-view: false
