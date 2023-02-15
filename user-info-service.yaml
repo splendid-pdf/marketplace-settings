@@ -1,10 +1,10 @@
 spring:
   application:
-    name: user-service
+    name: user-info-service
   jpa:
     show-sql: false
     open-in-view: false
-    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: validate
     properties:
@@ -20,7 +20,7 @@ spring:
       password: password
 
   datasource:
-    url: jdbc:postgresql://postgres:5432/user_info_db
+    url: jdbc:postgresql://172.17.0.1:5432/user_db
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
