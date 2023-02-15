@@ -20,8 +20,6 @@ application:
 spring:
   application:
     name: upload-service
-  config:
-    import: configserver:http://localhost:8888
 
 server:
   port: 9001
