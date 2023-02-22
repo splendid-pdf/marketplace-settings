@@ -29,7 +29,14 @@ management:
   endpoints:
     web:
       exposure:
-        include: prometheus, health
+        include: prometheus,health
+  metrics:
+    tags:
+      application: user-service
+  server:
+    port: 8000
+    ssl:
+      enabled: false
 
 app:
   api:
