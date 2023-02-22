@@ -1,3 +1,6 @@
+server:
+  port: 9001
+
 application:
   extension:
     jpg:
@@ -21,8 +24,11 @@ spring:
   application:
     name: upload-service
 
-server:
-  port: 9001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, health
 
 logging:
   level:

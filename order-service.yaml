@@ -21,11 +21,6 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: prometheus, health
     metrics:
       tags:
         application: ${spring.application.name}
@@ -33,6 +28,12 @@ spring:
       port: 8001
       ssl:
         enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, health
 
 logging:
   level:
