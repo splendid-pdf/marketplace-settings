@@ -32,7 +32,7 @@ management:
         include: prometheus,health
   metrics:
     tags:
-      application: user-service
+      application: ${spring.application.name}
   server:
     port: 8000
     ssl:
