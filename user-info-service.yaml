@@ -11,6 +11,11 @@ spring:
       hibernate:
         generate_statistics: false
         format_sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://127.0.0.1:9000/oauth2/jwks
   cache:
     type: redis
   data:
