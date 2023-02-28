@@ -20,7 +20,7 @@ spring:
     type: redis
   data:
     redis:
-      host: redis
+      host: 172.17.0.1
       port: 6379
       password: password
 

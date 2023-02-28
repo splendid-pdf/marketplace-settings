@@ -8,7 +8,7 @@ spring:
     gateway:
       routes:
         - id: order-service-route
-          uri: http://127.0.0.1:8081
+          uri: http://51.250.102.12:8081
           predicates:
             - Path=/*/*/*/orders, /*/*/*/orders/**
         - id: user-info-service-route
@@ -16,11 +16,11 @@ spring:
           predicates:
             - Path=/*/*/*/users, /*/*/*/users/{externalId}, /*/*/*/users/search, /*/*/*/users/signup
         - id: product-service-route
-          uri: http://127.0.0.1:9090
+          uri: http://51.250.102.12:9090
           predicates:
             - Path=/*/*/*/products, /*/*/*/products/{externalId}, /*/*/*/products/search, /*/*/*/*/*/products, /*/*/*/*/*/products/categories, /*/*/*/*/*/products/categories/**, /*/*/*/*/*/products/search/by-name
         - id: favorite-service-route
-          uri: http://127.0.0.1:8082
+          uri: http://51.250.102.12:8082
           predicates:
             - Path=/*/*/*/*/*/favorites, /*/*/*/*/*/favorites/{externalId}
         - id: upload-service-route
@@ -28,7 +28,8 @@ spring:
           predicates:
               - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
       default-filters:
-        - TokenRelay
+        - TokenRelay=
+        - RemoveRequestHeader=Cookie
 
   security:
     oauth2:
@@ -49,16 +50,3 @@ spring:
             authorization-uri: "http://51.250.102.12:9000/oauth2/authorize"
             jwk-set-uri: "http://51.250.102.12:9000/oauth2/jwks"
             user-info-uri: "http://51.250.102.12:9000/userinfo"
-
-management:
-  endpoint:
-    gateway:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: gateway
-
-logging:
-  level:
-    web: DEBUG
