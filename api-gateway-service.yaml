@@ -23,6 +23,10 @@ spring:
           uri: http://127.0.0.1:8082
           predicates:
             - Path=/*/*/*/*/*/favorites, /*/*/*/*/*/favorites/{externalId}
+        - id: upload-service-route
+          uri: http://127.0.0.1:9001
+          predicates:
+              - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
       default-filters:
         - TokenRelay
 
@@ -32,7 +36,7 @@ spring:
         registration:
           custom-oidc:
             provider: custom-oidc
-            scope: openid,read
+            scope: openid
             client-id: client
             client-secret: secret
             authorization-grant-type: authorization_code
