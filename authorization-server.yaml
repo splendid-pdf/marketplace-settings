@@ -10,8 +10,8 @@ app:
       redirect-success-login-uri: "http://51.250.102.12:7777/authorized"
       scope: read
     token-settings:
-      access-token-life-time-in-minutes: 43200
-      refresh-token-lifetime-in-minutes: 86400
+      access-token-life-time-in-minutes: 3600
+      refresh-token-lifetime-in-minutes: 7200
     data-provider-uri: "http://51.250.102.12:8080/private/api/v1/users/auth-details/"
 
 logging:
