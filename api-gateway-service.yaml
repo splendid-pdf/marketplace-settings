@@ -30,7 +30,7 @@ spring:
         - id: upload-service-route
           uri: http://51.250.102.12:9001
           predicates:
-              - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
+            - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
         - id: auth-server
           uri: http://51.250.102.12:9000
           predicates:
