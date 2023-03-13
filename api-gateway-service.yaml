@@ -18,7 +18,7 @@ spring:
         - id: product-service-route
           uri: http://51.250.102.12:9090
           predicates:
-            - Path=/*/*/*/products, /*/*/*/products/{externalId}, /*/*/*/products/search, /*/*/*/*/*/products, /*/*/*/*/*/products/categories, /*/*/*/*/*/products/categories/**, /*/*/*/*/*/products/search/by-name
+            - Path=/*/*/*/products, /*/*/*/products/{externalId}, /*/*/*/*/*/products, /*/*/*/products/search, /*/*/*/*/*/products/categories, /*/*/*/*/*/products/categories/**, /*/*/*/*/*/products/search/by-name
         - id: seller-info-service
           uri: http://51.250.102.12:8085
           predicates:
