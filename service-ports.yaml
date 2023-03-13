@@ -9,3 +9,4 @@ service:
     seller.info.service: 8085
     authorization.server: 9000
     upload.service: 9001
+    product.service: 9090
