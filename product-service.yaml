@@ -13,9 +13,9 @@ spring:
       url: /public/api/v1/sellers/
 
   datasource:
-    url: jdbc:postgresql://${DB_URL}:5432/${DB_NAME}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://51.250.102.12:5432/product_db
+    username: user
+    password: password
     driver-class-name: org.postgresql.Driver
 
   jpa:
