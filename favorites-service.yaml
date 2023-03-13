@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: favorites-service
+    url: /public/api/v1/users/
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+  flyway:
+    baseline-on-migrate: true
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  datasource:
+    url: jdbc:postgresql://172.17.0.1:5432/favorite_db
+    username: user
+    password: password
+    driverClassName: org.postgresql.Driver
