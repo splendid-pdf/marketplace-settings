@@ -66,10 +66,12 @@ application:
       - url: /*/*/*/users/signup
         methods:
           - POST
+          - OPTIONS
       # products-api
       - url: /*/*/*/products/{externalId}
         methods:
           - GET
+          - OPTIONS
       - url: /*/*/*/products
         methods:
           - GET
