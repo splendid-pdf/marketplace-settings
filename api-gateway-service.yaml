@@ -6,6 +6,18 @@ spring:
     name: api-gateway-service
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedHeaders: '*'
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+              - OPTIONS
       routes:
         - id: order-service-route
           uri: http://51.250.102.12:8081
