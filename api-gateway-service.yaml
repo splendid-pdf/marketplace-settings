@@ -31,6 +31,7 @@ spring:
               - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
       default-filters:
         - AuthFilter
+        - AddResponseHeader=Access-Control-Allow-Origin, *
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
 
   security:
@@ -94,4 +95,5 @@ application:
 
 logging:
   level:
-    org: INFO
+    com.marketplace: DEBUG
+    org.springframework: DEBUG
