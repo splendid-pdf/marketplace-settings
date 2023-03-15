@@ -65,6 +65,7 @@ application:
       # users-api
       - url: /*/*/*/users/signup
         methods:
+          - GET
           - POST
           - OPTIONS
       # products-api
