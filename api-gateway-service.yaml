@@ -68,7 +68,7 @@ application:
   security:
     white-list:
       # users-api
-      - url: /*/*/*/users/signup
+      - url: /*/*/*/registration/users
         methods:
           - GET
           - POST
