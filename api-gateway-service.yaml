@@ -16,7 +16,7 @@ spring:
         - id: user-service-route
           uri: http://51.250.102.12:8080
           predicates:
-            - Path=/*/*/*/users, /*/*/*/users/{externalId}, /*/*/*/users/search, /*/*/*/users/signup
+            - Path=/*/*/*/users, /*/*/*/users/{externalId}, /*/*/*/users/search, /*/*/*/registration/users
         - id: product-service-route
           uri: http://51.250.102.12:9090
           predicates:
