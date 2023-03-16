@@ -69,3 +69,8 @@ app:
       INCORRECT_SEX_TYPE_ERROR_CODE: 'Incorrect enum format: %s. Expected[MALE, FEMALE]'
       INCORRECT_SOCIAL_NETWORK_VALUE_ERROR_CODE: 'Incorrect social network value: %s'
       INCORRECT_SOCIAL_NETWORK_ERROR_CODE: 'Incorrect social network: %s'
+
+logging:
+  level:
+    com.marketplace: DEBUG
+    org.springframework: DEBUG
