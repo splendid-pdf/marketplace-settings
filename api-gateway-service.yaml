@@ -31,9 +31,6 @@ spring:
               - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
       default-filters:
         - AuthFilter
-        - AddResponseHeader=Access-Control-Allow-Origin, *
-        - AddResponseHeader=Access-Control-Allow-Headers, Content-Type
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
 
   security:
     oauth2:
@@ -72,12 +69,10 @@ application:
         methods:
           - GET
           - POST
-          - OPTIONS
       # products-api
       - url: /*/*/*/products/{externalId}
         methods:
           - GET
-          - OPTIONS
       - url: /*/*/*/products
         methods:
           - GET
