@@ -15,9 +15,9 @@ spring:
   kafka:
     bootstrap-servers: rc1b-0iucrlge6nlombgi.mdb.yandexcloud.net:9091
     ssl:
-      keystore-location: /etc/security
+      keystore-location: /etc/security/ssl.jks
       keystore-password: marketplace
-      truststore-location: /etc/security
+      truststore-location: /etc/security/ssl.jks
       truststore-password: marketplace
     properties:
       sasl:
