@@ -13,7 +13,25 @@ spring:
       url: /public/api/v1/sellers/
 
   kafka:
-    bootstrap-servers: 172.17.0.1:9092
+    bootstrap-servers: rc1b-0iucrlge6nlombgi.mdb.yandexcloud.net:9091
+    ssl:
+      keystore-location: /etc/security
+      keystore-password: marketplace
+      truststore-location: /etc/security
+      truststore-password: marketplace
+    properties:
+      sasl:
+        jaas:
+          config: 'org.apache.kafka.common.security.scram.ScramLoginModule required username="PRODUCT_SERVICE" password="7d28fdf7a73b7c0bf133df0f2028879bf0acf4530bd1b528b81fc795a089abfa";'
+        mechanism: SCRAM-SHA-512
+      security:
+        protocol: SASL_SSL
+      producer:
+        acks: 1
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      jaas:
+        enabled: true
 
   datasource:
     url: jdbc:postgresql://158.160.27.104:5432/product_db
