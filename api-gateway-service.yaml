@@ -91,5 +91,4 @@ application:
 
 logging:
   level:
-    com.marketplace: DEBUG
-    org.springframework: DEBUG
+    INFO
