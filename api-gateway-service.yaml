@@ -6,21 +6,37 @@ spring:
     name: api-gateway-service
   cloud:
     gateway:
-      globalcors:
-        add-to-simple-url-handler-mapping: true
       routes:
         - id: order-service-route
           uri: http://51.250.102.12:8081
           predicates:
             - Path=/*/*/*/orders, /*/*/*/orders/**
-        - id: user-service-route
+        - id: user-info-service-route
           uri: http://51.250.102.12:8080
           predicates:
-            - Path=/*/*/*/users, /*/*/*/users/{externalId}, /*/*/*/users/search, /*/*/*/registration/users
+            - Path=/*/*/*/users, /*/*/*/users/{externalId}, /*/*/*/users/search, /*/*/*/users/signup
         - id: product-service-route
           uri: http://51.250.102.12:9090
           predicates:
-            - Path=/*/*/*/products, /*/*/*/products/{externalId}, /*/*/*/products/search, /*/*/*/*/*/products, /*/*/*/*/*/products/categories, /*/*/*/*/*/products/categories/**, /*/*/*/*/*/products/search/by-name
+            - Path=/*/*/*/products/{externalId}
+            - Path=/*/*/*/products/special-prices/{specialPriceExternalId}
+            - Path=/*/*/*/products/characteristics/{characteristicExternalId} 
+            - Path=/*/*/*/products/{sellerId}
+            - Path=/*/*/*/products/special-prices/{productExternalId}
+            - Path=/*/*/*/products/images/{productId}
+            - Path=/*/*/*/product-previews
+            - Path=/*/*/*/sellers/{sellerId}/products/{productId}/price
+            - Path=/*/*/*/sellers/{sellerId}/products/visibility
+            - Path=/*/*/*/sellers/{sellerId}/products/archive
+            - Path=/*/*/*/sellers/{sellerId}/products
+            - Path=/*/*/*/sellers/{sellerId}/archived-products
+            - Path=/*/*/*/types/{typeId}
+            - Path=/*/*/*/special-prices/{specialPriceId}
+            - Path=/*/*/*/images
+        - id: seller-service-route
+          uri: http://51.250.102.12:8085
+          predicates:
+            - Path=/*/*/*/sellers, /*/*/*/sellers/{externalId}
         - id: favorite-service-route
           uri: http://51.250.102.12:8082
           predicates:
@@ -30,7 +46,8 @@ spring:
           predicates:
               - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
       default-filters:
-        - AuthFilter
+        - TokenRelay=
+        - RemoveRequestHeader=Cookie
 
   security:
     oauth2:
@@ -51,44 +68,3 @@ spring:
             authorization-uri: "http://51.250.102.12:9000/oauth2/authorize"
             jwk-set-uri: "http://51.250.102.12:9000/oauth2/jwks"
             user-info-uri: "http://51.250.102.12:9000/userinfo"
-
-management:
-  endpoint:
-    gateway:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: gateway
-
-application:
-  security:
-    white-list:
-      # users-api
-      - url: /*/*/*/registration/users
-        methods:
-          - GET
-          - POST
-      # products-api
-      - url: /*/*/*/products/{externalId}
-        methods:
-          - GET
-      - url: /*/*/*/products
-        methods:
-          - GET
-      - url: /*/*/*/products/search
-        methods:
-          - GET
-      - url: /*/*/*/*/*/products/categories
-        methods:
-          - GET
-      - url: /*/*/*/*/*/products/categories/**
-        methods:
-          - GET
-      - url: /*/*/*/*/*/products/search/by-name
-        methods:
-          - GET
-
-logging:
-  level:
-    INFO
