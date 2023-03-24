@@ -18,21 +18,21 @@ spring:
         - id: product-service-route
           uri: http://51.250.102.12:9090
           predicates:
-            - Path=/*/*/*/products/{externalId}
-            - Path=/*/*/*/products/special-prices/{specialPriceExternalId}
-            - Path=/*/*/*/products/characteristics/{characteristicExternalId} 
-            - Path=/*/*/*/products/{sellerId}
-            - Path=/*/*/*/products/special-prices/{productExternalId}
-            - Path=/*/*/*/products/images/{productId}
-            - Path=/*/*/*/product-previews
-            - Path=/*/*/*/sellers/{sellerId}/products/{productId}/price
-            - Path=/*/*/*/sellers/{sellerId}/products/visibility
-            - Path=/*/*/*/sellers/{sellerId}/products/archive
-            - Path=/*/*/*/sellers/{sellerId}/products
-            - Path=/*/*/*/sellers/{sellerId}/archived-products
-            - Path=/*/*/*/types/{typeId}
-            - Path=/*/*/*/special-prices/{specialPriceId}
-            - Path=/*/*/*/images
+            - Path=/*/*/*/products/{externalId},
+                /*/*/*/products/special-prices/{specialPriceExternalId},
+                /*/*/*/products/characteristics/{characteristicExternalId},
+                /*/*/*/products/{sellerId},
+                /*/*/*/products/special-prices/{productExternalId},
+                /*/*/*/products/images/{productId},
+                /*/*/*/product-previews,
+                /*/*/*/sellers/{sellerId}/products/{productId}/price,
+                /*/*/*/sellers/{sellerId}/products/visibility,
+                /*/*/*/sellers/{sellerId}/products/archive,
+                /*/*/*/sellers/{sellerId}/products,
+                /*/*/*/sellers/{sellerId}/archived-products,
+                /*/*/*/products/types/{typeId},
+                /*/*/*/products/special-prices/{specialPriceId},
+                /*/*/*/products/images
         - id: seller-service-route
           uri: http://51.250.102.12:8085
           predicates:
