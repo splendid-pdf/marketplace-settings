@@ -20,7 +20,21 @@ spring:
         - id: product-service-route
           uri: http://51.250.102.12:9090
           predicates:
-            - Path=/*/*/*/products, /*/*/*/products/{externalId}, /*/*/*/products/search, /*/*/*/*/*/products, /*/*/*/*/*/products/categories, /*/*/*/*/*/products/categories/**, /*/*/*/*/*/products/search/by-name
+            - Path=/*/*/*/products/{externalId},
+                /*/*/*/products/special-prices/{specialPriceExternalId},
+                /*/*/*/products/characteristics/{characteristicExternalId},
+                /*/*/*/products/{sellerId},
+                /*/*/*/products/special-prices/{productExternalId},
+                /*/*/*/products/images/{productId},
+                /*/*/*/product-previews,
+                /*/*/*/sellers/{sellerId}/products/{productId}/price,
+                /*/*/*/sellers/{sellerId}/products/visibility,
+                /*/*/*/sellers/{sellerId}/products/archive,
+                /*/*/*/sellers/{sellerId}/products,
+                /*/*/*/sellers/{sellerId}/archived-products,
+                /*/*/*/products/types/{typeId},
+                /*/*/*/products/special-prices/{specialPriceId},
+                /*/*/*/products/images
         - id: favorite-service-route
           uri: http://51.250.102.12:8082
           predicates:
