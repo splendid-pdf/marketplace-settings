@@ -12,8 +12,8 @@ app:
     token-settings:
       access-token-life-time-in-minutes: 10080 # 7 days
       refresh-token-lifetime-in-minutes: 11520 # 8 days
-    user-data-provider-url: "http://127.0.0.1:8080/private/api/v1"
-    seller-data-provider-url: "http://127.0.0.1:8085/private/api/v1"
+    user-data-provider-url: "http://172.17.0.1:8080/private/api/v1"
+    seller-data-provider-url: "http://172.17.0.1:8085/private/api/v1"
 
 logging:
   level:
