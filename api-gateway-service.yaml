@@ -16,25 +16,30 @@ spring:
         - id: user-service-route
           uri: http://172.17.0.1:8080
           predicates:
-            - Path=/*/*/*/users, /*/*/*/users/{externalId}, /*/*/*/users/search, /*/*/*/registration/users
+            - Path=/*/*/*/users, /*/*/*/users/{userId}
+        - id: seller-service-route
+          uri: http://172.17.0.1:8085
+          predicates:
+            - Path=/*/*/*/sellers, /*/*/*/sellers/{sellerId}
         - id: product-service-route
           uri: http://172.17.0.1:9090
           predicates:
-            - Path=/*/*/*/products/{externalId},
-                /*/*/*/products/special-prices/{specialPriceExternalId},
-                /*/*/*/products/characteristics/{characteristicExternalId},
-                /*/*/*/products/{sellerId},
-                /*/*/*/products/special-prices/{productExternalId},
-                /*/*/*/products/images/{productId},
-                /*/*/*/product-previews,
-                /*/*/*/sellers/{sellerId}/products/{productId}/price,
-                /*/*/*/sellers/{sellerId}/products/visibility,
-                /*/*/*/sellers/{sellerId}/products/archive,
+            - Path=/*/*/*/products/{productId},
                 /*/*/*/sellers/{sellerId}/products,
                 /*/*/*/sellers/{sellerId}/archived-products,
-                /*/*/*/products/types/{typeId},
+                /*/*/*/products/{productId}/special-prices,
+                /*/*/*/products/{productId}/images,
+                /*/*/*/products/images,
                 /*/*/*/products/special-prices/{specialPriceId},
-                /*/*/*/products/images
+                /*/*/*/products/{productId}/price,
+                /*/*/*/products/{productId}/visibility,
+                /*/*/*/products/{productId}/archive,
+                /*/*/*/types,
+                /*/*/*/types/{typeId},
+                /*/*/*/rooms/{roomId}/types,
+                /*/*/*/rooms,
+                /*/*/*/rooms/{roomId},
+                /*/*/*/types/{typeId}/rooms,
         - id: favorite-service-route
           uri: http://172.17.0.1:8082
           predicates:
@@ -57,14 +62,14 @@ spring:
             client-secret: secret
             authorization-grant-type: authorization_code
             client-authentication-method: client_secret_basic
-            redirect-uri: "http://51.250.102.12:7777/login/oauth2/code/custom-oidc"
+            redirect-uri: "http://172.17.0.1:7777/login/oauth2/code/custom-oidc"
         provider:
           custom-oidc:
-            issuer-uri: "http://51.250.102.12:9000"
-            token-uri: "http://51.250.102.12:9000/oauth2/token"
-            authorization-uri: "http://51.250.102.12:9000/oauth2/authorize"
-            jwk-set-uri: "http://51.250.102.12:9000/oauth2/jwks"
-            user-info-uri: "http://51.250.102.12:9000/userinfo"
+            issuer-uri: "http://172.17.0.1:9000"
+            token-uri: "http://172.17.0.1:9000/oauth2/token"
+            authorization-uri: "http://172.17.0.1:9000/oauth2/authorize"
+            jwk-set-uri: "http://172.17.0.1:9000/oauth2/jwks"
+            user-info-uri: "http://172.17.0.1:9000/userinfo"
 
 management:
   endpoint:
@@ -84,7 +89,22 @@ application:
       # products-api
       - url: /*/*/*/products/{externalId}
         methods: GET
-      - url: /*/*/*/products
+      - url: /*/*/*/products/{productId}
+        methods: GET
+      - url: /*/*/*/sellers/{sellerId}/products
+        methods: GET
+      - url: /*/*/*/types
+        methods: GET
+      - url: /*/*/*/types/{typeId}
+        methods: GET
+      - url: /*/*/*/rooms/{roomId}/types
+        methods: GET
+      - url: /*/*/*/rooms
+        methods: GET
+      - url: /*/*/*/rooms/{roomId}
+        methods: GET
+      - url: /*/*/*/types/{typeId}/rooms
+        methods: GET
 
 logging:
   level:
