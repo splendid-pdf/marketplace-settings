@@ -57,6 +57,3 @@ spring:
       host: 158.160.27.104
       port: 6379
       database: 0
-
-logging:
-  level: DEBUG
