@@ -107,4 +107,5 @@ application:
         methods: GET
 
 logging:
-  level: DEBUG
+  level:
+    org: DEBUG
