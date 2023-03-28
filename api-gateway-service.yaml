@@ -108,4 +108,4 @@ application:
 
 logging:
   level:
-    INFO
+    DEBUG
