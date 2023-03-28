@@ -6,8 +6,6 @@ spring:
     name: api-gateway-service
   cloud:
     gateway:
-      globalcors:
-        add-to-simple-url-handler-mapping: true
       routes:
         - id: order-service-route
           uri: http://172.17.0.1:8081
@@ -39,7 +37,7 @@ spring:
                 /*/*/*/rooms/{roomId}/types,
                 /*/*/*/rooms,
                 /*/*/*/rooms/{roomId},
-                /*/*/*/types/{typeId}/rooms,
+                /*/*/*/types/{typeId}/rooms
         - id: favorite-service-route
           uri: http://172.17.0.1:8082
           predicates:
@@ -78,7 +76,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: gateway
+        include: gateway, loggers
 
 application:
   security:
