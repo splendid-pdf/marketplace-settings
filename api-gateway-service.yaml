@@ -10,15 +10,15 @@ spring:
         add-to-simple-url-handler-mapping: true
       routes:
         - id: order-service-route
-          uri: http://51.250.102.12:8081
+          uri: http://172.17.0.1:8081
           predicates:
             - Path=/*/*/*/orders, /*/*/*/orders/**
         - id: user-service-route
-          uri: http://51.250.102.12:8080
+          uri: http://172.17.0.1:8080
           predicates:
             - Path=/*/*/*/users, /*/*/*/users/{externalId}, /*/*/*/users/search, /*/*/*/registration/users
         - id: product-service-route
-          uri: http://51.250.102.12:9090
+          uri: http://172.17.0.1:9090
           predicates:
             - Path=/*/*/*/products/{externalId},
                 /*/*/*/products/special-prices/{specialPriceExternalId},
@@ -36,11 +36,11 @@ spring:
                 /*/*/*/products/special-prices/{specialPriceId},
                 /*/*/*/products/images
         - id: favorite-service-route
-          uri: http://51.250.102.12:8082
+          uri: http://172.17.0.1:8082
           predicates:
             - Path=/*/*/*/*/*/favorites, /*/*/*/*/*/favorites/{externalId}
         - id: upload-service-route
-          uri: http://51.250.102.12:9001
+          uri: http://172.17.0.1:9001
           predicates:
               - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
       default-filters:
@@ -80,28 +80,11 @@ application:
     white-list:
       # users-api
       - url: /*/*/*/registration/users
-        methods:
-          - GET
-          - POST
+        methods: GET, POST
       # products-api
       - url: /*/*/*/products/{externalId}
-        methods:
-          - GET
+        methods: GET
       - url: /*/*/*/products
-        methods:
-          - GET
-      - url: /*/*/*/products/search
-        methods:
-          - GET
-      - url: /*/*/*/*/*/products/categories
-        methods:
-          - GET
-      - url: /*/*/*/*/*/products/categories/**
-        methods:
-          - GET
-      - url: /*/*/*/*/*/products/search/by-name
-        methods:
-          - GET
 
 logging:
   level:
