@@ -17,4 +17,4 @@ app:
 
 logging:
   level:
-    org: INFO
+    org.springframework: DEBUG

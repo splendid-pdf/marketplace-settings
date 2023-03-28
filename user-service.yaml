@@ -64,4 +64,4 @@ app:
       INCORRECT_SOCIAL_NETWORK_ERROR_CODE: 'Incorrect social network: %s'
 
 logging:
-  level: INFO
+  level: DEBUG
