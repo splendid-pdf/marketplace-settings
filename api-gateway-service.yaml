@@ -82,8 +82,8 @@ application:
   security:
     white-list:
       # users-api
-      - url: /*/*/*/registration/users
-        methods: GET, POST
+      - url: /*/*/*/users
+        methods: POST
       # products-api
       - url: /*/*/*/products/{externalId}
         methods: GET
