@@ -106,4 +106,4 @@ application:
 
 logging:
   level:
-    org: DEBUG
+    org: TRACE
