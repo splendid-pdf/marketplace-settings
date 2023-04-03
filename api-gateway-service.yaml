@@ -74,10 +74,6 @@ application:
 #        methods: GET
 #      - url: /*/*/*/products/{productId}
 #        methods: GET
-      - url: /*/*/*/product-previews
-        methods: GET
-      - url: /*/*/*/product-previews
-        methods: POST
       - url: /*/*/*/types
         methods: GET
       - url: /*/*/*/types/{typeId}
