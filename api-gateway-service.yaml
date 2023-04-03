@@ -22,22 +22,7 @@ spring:
         - id: product-service-route
           uri: http://51.250.102.12:9090
           predicates:
-            - Path=/*/*/*/products/{productId},
-                /*/*/*/sellers/{sellerId}/products,
-                /*/*/*/sellers/{sellerId}/archived-products,
-                /*/*/*/products/{productId}/special-prices,
-                /*/*/*/products/{productId}/images,
-                /*/*/*/products/images,
-                /*/*/*/products/special-prices/{specialPriceId},
-                /*/*/*/products/{productId}/price,
-                /*/*/*/products/{productId}/visibility,
-                /*/*/*/products/{productId}/archive,
-                /*/*/*/types,
-                /*/*/*/types/{typeId},
-                /*/*/*/rooms/{roomId}/types,
-                /*/*/*/rooms,
-                /*/*/*/rooms/{roomId},
-                /*/*/*/types/{typeId}/rooms
+            - Path=/*/*/*/products, /*/*/*/products/{externalId}, /*/*/*/products/search, /*/*/*/*/*/products, /*/*/*/*/*/products/categories, /*/*/*/*/*/products/categories/**, /*/*/*/*/*/products/search/by-name, /*/*/*/*/{sellerId}/products, /*/*/*/*/{sellerId}/products/**, /*/*/*/*/{sellerId}/products/{productId}, /*/*/*/*/{sellerId}/products/{productId}/**, /*/*/*/*/{sellerId}/products/special-prices/{specialPriceId}, /*/*/*/*/{sellerId}/products/characteristics/{characteristicId}, /*/*/*/product-previews, /*/*/*/*/{sellerId}/archive/products
         - id: favorite-service-route
           uri: http://172.17.0.1:8082
           predicates:
@@ -85,12 +70,14 @@ application:
       - url: /*/*/*/users
         methods: POST
       # products-api
-      - url: /*/*/*/products/{externalId}
+#      - url: /*/*/*/products/{externalId}
+#        methods: GET
+#      - url: /*/*/*/products/{productId}
+#        methods: GET
+      - url: /*/*/*/product-previews
         methods: GET
-      - url: /*/*/*/products/{productId}
-        methods: GET
-      - url: /*/*/*/sellers/{sellerId}/products
-        methods: GET
+      - url: /*/*/*/product-previews
+        methods: POST
       - url: /*/*/*/types
         methods: GET
       - url: /*/*/*/types/{typeId}
