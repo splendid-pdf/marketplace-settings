@@ -87,7 +87,7 @@ application:
       - url: /*/*/*/types/{typeId}/rooms
         methods: GET
       # seller-api
-      -url: /*/*/*/sellers
+      - url: /*/*/*/sellers
       - methods: POST
 
 logging:
