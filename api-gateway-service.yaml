@@ -69,6 +69,9 @@ application:
       # users-api
       - url: /*/*/*/users
         methods: POST
+      # seller-api  
+      - url: /*/*/*/sellers
+        methods: POST
       # products-api
 #      - url: /*/*/*/products/{externalId}
 #        methods: GET
@@ -86,9 +89,7 @@ application:
         methods: GET
       - url: /*/*/*/types/{typeId}/rooms
         methods: GET
-      # seller-api
-      - url: /*/*/*/sellers
-      - methods: POST
+    
 
 logging:
   level:
