@@ -89,4 +89,4 @@ application:
 
 logging:
   level:
-    org: TRACE
+    org: INFO
