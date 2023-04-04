@@ -89,6 +89,8 @@ application:
         methods: GET
       - url: /*/*/*/types/{typeId}/rooms
         methods: GET
+      - url: /*/*/*/product-previews
+        methods: POST, GET  
     
 
 logging:
