@@ -1,15 +1,17 @@
 server:
-  port: 8083
+  port: 8082
 
 spring:
   application:
     name: review-service
     url: /public/api/v1
+  flyway:
+    enabled: false
   jackson:
     serialization:
       fail-on-empty-beans: false
   datasource:
-    url: jdbc:postgresql://172.17.0.1:5432/review_db
+    url: jdbc:postgresql://158.160.27.104:5432/review_db
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
@@ -22,20 +24,3 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: prometheus,health
-  metrics:
-    tags:
-      application: ${spring.application.name}
-  server:
-    port: 8003
-    ssl:
-      enabled: false
-
-logging:
-  level:
-    org: INFO

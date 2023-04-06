@@ -12,8 +12,9 @@ app:
     token-settings:
       access-token-life-time-in-minutes: 10080 # 7 days
       refresh-token-lifetime-in-minutes: 11520 # 8 days
-    data-provider-uri: "http://51.250.102.12:8080/private/api/v1/users/auth-details/"
+    user-data-provider-url: "http://172.17.0.1:8080/private/api/v1"
+    seller-data-provider-url: "http://172.17.0.1:8085/private/api/v1"
 
 logging:
   level:
-    org: debug
+    org.springframework: DEBUG

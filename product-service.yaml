@@ -1,0 +1,69 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: product-service
+  flyway:
+    enabled: true
+  app:
+    product:
+      url: /public/api/v1/products/
+    seller:
+      url: /public/api/v1/sellers/
+
+  kafka:
+    bootstrap-servers: rc1b-0iucrlge6nlombgi.mdb.yandexcloud.net:9091
+    ssl:
+      keystore-location: /etc/security/ssl.jks
+      keystore-password: marketplace
+      truststore-location: /etc/security/ssl.jks
+      truststore-password: marketplace
+    properties:
+      sasl:
+        jaas:
+          config: 'org.apache.kafka.common.security.scram.ScramLoginModule required username="PRODUCT_SERVICE" password="7d28fdf7a73b7c0bf133df0f2028879bf0acf4530bd1b528b81fc795a089abfa";'
+        mechanism: SCRAM-SHA-512
+      security:
+        protocol: SASL_SSL
+      producer:
+        acks: 1
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      jaas:
+        enabled: true
+
+  datasource:
+    url: jdbc:postgresql://158.160.27.104:5432/product_db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        generate_statistics: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  data:
+    redis:
+      jedis:
+        pool:
+          enabled: false
+      host: 158.160.27.104
+      port: 6379
+      database: 0
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://51.250.102.12:9000/oauth2/jwks
+
+logging:
+  level:
+    web: DEBUG

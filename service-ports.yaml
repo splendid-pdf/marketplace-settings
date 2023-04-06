@@ -1,0 +1,12 @@
+# busy service ports
+service:
+  ports:
+    api.gateway.service: 7777
+    user.service: 8000
+    order.service: 8081
+    favorites.service: 8083
+    review.service: 8082
+    seller.info.service: 8085
+    authorization.server: 9000
+    upload.service: 9001
+    product.service: 9090
