@@ -30,7 +30,7 @@ spring:
         - id: upload-service-route
           uri: http://172.17.0.1:9001
           predicates:
-              - Path=/*/*/*/upload, /*/*/*/download, /*/*/*/url, /*/*/*/delete, /*/*/*/urls
+              - Path=/*/*/*/files
       default-filters:
         - AuthFilter
 
@@ -90,7 +90,10 @@ application:
       - url: /*/*/*/types/{typeId}/rooms
         methods: GET
       - url: /*/*/*/product-previews
-        methods: POST, GET  
+        methods: POST, GET
+      # upload-api
+      - url: /*/*/*/files
+        methods: POST, GET, DELETE
     
 
 logging:
