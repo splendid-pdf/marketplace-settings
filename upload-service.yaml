@@ -23,6 +23,10 @@ application:
 spring:
   application:
     name: upload-service
+  data:
+    mongodb:
+      uri: mongodb://158.160.27.104:27017/upload-service
+      database: upload-service
 
 management:
   endpoints:
