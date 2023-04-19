@@ -22,7 +22,7 @@ spring:
         - id: product-service-route
           uri: http://51.250.102.12:9090
           predicates:
-            - Path=/*/*/*/types, /*/*/*/types/{typeId}, /*/*/*/types/{typeId}/rooms, /*/*/*/rooms, /*/*/*/rooms/{roomId}, /*/*/*/rooms/{roomId}/types, /*/*/*/product-previews, */*/*/*/*/products, /*/*/*/*/*/products/categories, /*/*/*/*/*/products/categories/**, /*/*/*/*/*/products/search/by-name, /*/*/*/*/{sellerId}/products, /*/*/*/*/{sellerId}/products/**, /*/*/*/*/{sellerId}/products/{productId}, /*/*/*/*/{sellerId}/products/{productId}/*, /*/*/*/*/{sellerId}/products/special-prices/{specialPriceId}, /*/*/*/*/{sellerId}/products/characteristics/{characteristicId}, /*/*/*/*/{sellerId}/archive/products
+            - Path=/*/*/*/types, /*/*/*/types/{typeId}, /*/*/*/types/{typeId}/rooms, /*/*/*/rooms, /*/*/*/rooms/{roomId}, /*/*/*/rooms/{roomId}/types, /*/*/*/product-previews, */*/*/*/*/products, /*/*/*/*/*/products/categories, /*/*/*/*/*/products/categories/**, /*/*/*/*/*/products/search/by-name, /*/*/*/*/{sellerId}/products, /*/*/*/*/{sellerId}/products/**, /*/*/*/*/{sellerId}/products/{productId}, /*/*/*/*/{sellerId}/products/{productId}/price, /*/*/*/*/{sellerId}/products/special-prices/{specialPriceId}, /*/*/*/*/{sellerId}/products/characteristics/{characteristicId}, /*/*/*/*/{sellerId}/archive/products
         - id: favorite-service-route
           uri: http://172.17.0.1:8082
           predicates:
