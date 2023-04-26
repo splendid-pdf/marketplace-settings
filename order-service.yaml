@@ -21,26 +21,26 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
-    metrics:
-      tags:
-        application: ${spring.application.name}
-    server:
-      port: 8001
-      ssl:
-        enabled: false
 
 management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1
   endpoints:
     web:
       exposure:
-        include: prometheus,health
+        include: prometheus, health
   metrics:
     tags:
       application: ${spring.application.name}
   server:
-    port: 8002
+    port: 8001
     ssl:
       enabled: false
+  zipkin:
+    tracing:
+      endpoint: http://158.160.27.104:9411/api/v2/spans
 
 logging:
   level:

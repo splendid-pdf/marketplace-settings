@@ -29,17 +29,24 @@ spring:
       database: upload-service
 
 management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1
   endpoints:
     web:
       exposure:
-        include: prometheus,health
+        include: prometheus, health
   metrics:
     tags:
       application: ${spring.application.name}
   server:
-    port: 9001
+    port: 8030
     ssl:
       enabled: false
+  zipkin:
+    tracing:
+      endpoint: http://158.160.27.104:9411/api/v2/spans
 
 logging:
   level:

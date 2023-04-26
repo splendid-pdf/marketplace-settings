@@ -59,13 +59,16 @@ management:
     enabled: true
     sampling:
       probability: 1
+  metrics:
+    tags:
+      application: ${spring.application.name}
   endpoint:
     gateway:
       enabled: true
   endpoints:
     web:
       exposure:
-        include: gateway, prometheus, loggers
+        include: gateway, prometheus, loggers, health
   zipkin:
     tracing:
       endpoint: http://158.160.27.104:9411/api/v2/spans
