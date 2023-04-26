@@ -55,13 +55,20 @@ spring:
             user-info-uri: "http://172.17.0.1:9000/userinfo"
 
 management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1
   endpoint:
     gateway:
       enabled: true
   endpoints:
     web:
       exposure:
-        include: gateway, loggers
+        include: gateway, prometheus, loggers
+  zipkin:
+    tracing:
+      endpoint: http://158.160.27.104:9411/api/v2/spans
 
 application:
   security:
