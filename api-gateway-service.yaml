@@ -32,7 +32,11 @@ spring:
           predicates:
             - Path=/*/*/*/files
       default-filters:
-        - AuthFilter
+        - name: AuthFilter
+        - name: CircuitBreaker
+          args:
+            name: DefaultCircuitBreaker
+            fallbackUri: forward:/fallback/error-response
 
   security:
     oauth2:
