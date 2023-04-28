@@ -85,7 +85,6 @@ application:
     host: storage.yandexcloud.net
     region: ru-central1
     bucket-name: marketplace-object-storage
-    bucket_name: marketplace-object-storage
     credentials:
       secret-key: ${SECRET_KEY}
       access-key: ${ACCESS_KEY}
