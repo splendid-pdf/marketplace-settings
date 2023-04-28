@@ -30,7 +30,7 @@ spring:
         - id: upload-service-route
           uri: http://172.17.0.1:9001
           predicates:
-              - Path=/*/*/*/files?id=530fddac-a7b4-4f96-955e-95cb82fa3235
+              - Path=/*/*/*/files
       default-filters:
         - AuthFilter
 
