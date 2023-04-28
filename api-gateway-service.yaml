@@ -122,4 +122,4 @@ application:
 
 logging:
   level:
-    org: INFO
+    org: DEBUG
