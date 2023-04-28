@@ -113,9 +113,9 @@ spring:
 
 management:
   tracing:
-    enabled: true
+    enabled: false
     sampling:
-      probability: 1
+      probability: 0.1
   endpoints:
     web:
       exposure:
