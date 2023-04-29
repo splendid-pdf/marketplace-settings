@@ -69,14 +69,10 @@ management:
   endpoint:
     gateway:
       enabled: true
-  server:
-    port: 7700
-    ssl:
-      enabled: false
   endpoints:
     web:
       exposure:
-        include: gateway, prometheus, loggers, health
+        include: gateway, prometheus, health
   zipkin:
     tracing:
       endpoint: http://158.160.27.104:9411/api/v2/spans
