@@ -33,10 +33,10 @@ spring:
             - Path=/*/*/*/files
       default-filters:
         - name: AuthFilter
-#        - name: CircuitBreaker
-#          args:
-#            name: DefaultCircuitBreaker
-#            fallbackUri: forward:/fallback/error-response
+        - name: CircuitBreaker
+          args:
+            name: DefaultCircuitBreaker
+            fallbackUri: forward:/fallback
 
   security:
     oauth2:
@@ -69,6 +69,10 @@ management:
   endpoint:
     gateway:
       enabled: true
+  server:
+    port: 7700
+    ssl:
+      enabled: false
   endpoints:
     web:
       exposure:
@@ -87,10 +91,6 @@ application:
       - url: /*/*/*/sellers
         methods: POST
       # products-api
-#      - url: /*/*/*/products/{externalId}
-#        methods: GET
-#      - url: /*/*/*/products/{productId}
-#        methods: GET
       - url: /*/*/*/types
         methods: GET
       - url: /*/*/*/types/{typeId}
