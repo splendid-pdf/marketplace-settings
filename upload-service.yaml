@@ -46,36 +46,6 @@ application:
           - AVATAR
           - PRODUCT
           - REVIEW
-      mov:
-        max_file_size_in_bytes: 104_857_600 #100 mb
-        file_types:
-          - PRODUCT
-          - REVIEW
-      mp4:
-        max_file_size_in_bytes: 104_857_600 #100 mb
-        file_types:
-          - PRODUCT
-          - REVIEW
-      mkv:
-        max_file_size_in_bytes: 104_857_600 #100 mb
-        file_types:
-          - PRODUCT
-          - REVIEW
-      m4v:
-        max_file_size_in_bytes: 104_857_600 #100 mb
-        file_types:
-          - PRODUCT
-          - REVIEW
-      avi:
-        max_file_size_in_bytes: 104_857_600 #100 mb
-        file_types:
-          - PRODUCT
-          - REVIEW
-      hevc:
-        max_file_size_in_bytes: 104_857_600 #100 mb
-        file_types:
-          - PRODUCT
-          - REVIEW
       pdf:
         max_file_size_in_bytes: 5_242_880 #5 mb
         file_types:
@@ -85,7 +55,6 @@ application:
     host: storage.yandexcloud.net
     region: ru-central1
     bucket-name: marketplace-object-storage
-    bucket_name: marketplace-object-storage
     credentials:
       secret-key: ${SECRET_KEY}
       access-key: ${ACCESS_KEY}
@@ -113,9 +82,9 @@ spring:
 
 management:
   tracing:
-    enabled: true
+    enabled: false
     sampling:
-      probability: 1
+      probability: 0.1
   endpoints:
     web:
       exposure:
@@ -124,7 +93,7 @@ management:
     tags:
       application: ${spring.application.name}
   server:
-    port: 8030
+    port: 8021
     ssl:
       enabled: false
   zipkin:
