@@ -92,11 +92,11 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
-   server:
+  server:
      port: 8021
      ssl:
        enabled: false
-   zipkin:
+  zipkin:
      tracing:
        endpoint: http://158.160.27.104:9411/api/v2/spans
 
