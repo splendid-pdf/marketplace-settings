@@ -1,6 +1,5 @@
 server:
   port: 9001
-
 application:
   validation:
   extensions:
@@ -46,11 +45,40 @@ application:
           - AVATAR
           - PRODUCT
           - REVIEW
+#       mov:
+#         max_file_size_in_bytes: 104_857_600 #100 mb
+#         file_types:
+#           - PRODUCT
+#           - REVIEW
+#       mp4:
+#         max_file_size_in_bytes: 104_857_600 #100 mb
+#         file_types:
+#           - PRODUCT
+#           - REVIEW
+#       mkv:
+#         max_file_size_in_bytes: 104_857_600 #100 mb
+#         file_types:
+#           - PRODUCT
+#           - REVIEW
+#       m4v:
+#         max_file_size_in_bytes: 104_857_600 #100 mb
+#         file_types:
+#           - PRODUCT
+#           - REVIEW
+#       avi:
+#         max_file_size_in_bytes: 104_857_600 #100 mb
+#         file_types:
+#           - PRODUCT
+#           - REVIEW
+#       hevc:
+#         max_file_size_in_bytes: 104_857_600 #100 mb
+#         file_types:
+#           - PRODUCT
+#           - REVIEW
       pdf:
         max_file_size_in_bytes: 5_242_880 #5 mb
         file_types:
           - CHECK
-
   object-storage:
     host: storage.yandexcloud.net
     region: ru-central1
@@ -58,7 +86,6 @@ application:
     credentials:
       secret-key: ${SECRET_KEY}
       access-key: ${ACCESS_KEY}
-
 spring:
   application:
     name: upload-service
@@ -68,7 +95,6 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://51.250.102.12:9000/oauth2/jwks
-
   servlet:
     multipart:
       enabled: true
@@ -79,7 +105,6 @@ spring:
     mongodb:
       uri: mongodb://158.160.27.104:27017/upload-service
       database: upload-service
-
 management:
   tracing:
     enabled: false
@@ -92,14 +117,13 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
-   server:
-     port: 8021
-     ssl:
-       enabled: false
-   zipkin:
-     tracing:
-       endpoint: http://158.160.27.104:9411/api/v2/spans
-
+#   server:
+#     port: 8030
+#     ssl:
+#       enabled: false
+#   zipkin:
+#     tracing:
+#       endpoint: http://158.160.27.104:9411/api/v2/spans
 logging:
   level:
     org:
