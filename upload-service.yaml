@@ -75,8 +75,6 @@ spring:
       max-request-size: 2000MB #2 GB
   application:
     name: upload-service
-  config:
-    import: optional:configserver:http://localhost:8888
   data:
     mongodb:
       uri: mongodb://158.160.27.104:27017/upload-service
