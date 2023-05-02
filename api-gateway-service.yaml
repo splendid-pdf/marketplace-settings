@@ -33,10 +33,10 @@ spring:
             - Path=/*/*/*/files
       default-filters:
          - name: AuthFilter
-#         - name: CircuitBreaker
-#          args:
-#             name: DefaultCircuitBreaker
-#             fallbackUri: forward:/fallback
+         - name: CircuitBreaker
+          args:
+             name: DefaultCircuitBreaker
+             fallbackUri: forward:/fallback
 
   security:
     oauth2:
