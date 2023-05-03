@@ -34,7 +34,7 @@ spring:
       default-filters:
          - name: AuthFilter
          - name: CircuitBreaker
-          args:
+           args:
              name: DefaultCircuitBreaker
              fallbackUri: forward:/fallback
 
