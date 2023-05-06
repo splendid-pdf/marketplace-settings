@@ -18,7 +18,7 @@ spring:
         - id: seller-service-route
           uri: http://172.17.0.1:8085
           predicates:
-            - Path=/*/*/*/sellers, /*/*/*/sellers/{sellerId}, /*/*/*/sellers/string
+            - Path=/*/*/*/sellers, /*/*/*/sellers/{sellerId}
         - id: product-service-route
           uri: http://51.250.102.12:9090
           predicates:
