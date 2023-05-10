@@ -31,6 +31,10 @@ spring:
           uri: http://172.17.0.1:9001
           predicates:
             - Path=/*/*/*/files
+        - id: basket-service
+          uri: http://172.17.0.1:9091
+          predicates:
+            - Path=/*/*/*/users/{userId}/basket/products
       default-filters:
          - name: AuthFilter
          - name: CircuitBreaker
